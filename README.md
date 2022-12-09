@@ -12,4 +12,34 @@ Plan:
 
 | AAE | AAE representation | XMP | XMP representation | description |
 |-----|--------------------|-----|--------------------|-------------|
-|
+| adjustmentBaseVersion
+| adjustmentData / metadata / masterHeight
+| adjustmentData / metadata / masterWidth
+| adjustmentData / metadata / orientation
+| adjustmentData / formatVersion
+| adjustmentData / versionInfo / buildNumber
+| adjustmentData / versionInfo / appVersion
+| adjustmentData / versionInfo / schemaRevision
+| adjustmentData / versionInfo / platform
+| adjustmentData / adjustments / ...
+| adjustmentData / adjustments / # / formatVersion
+| adjustmentData / adjustments / # / enabled
+| adjustmentData / adjustments / # / settings / yaw
+| adjustmentData / adjustments / # / settings / originalCrop
+| adjustmentData / adjustments / # / settings / xOrigin
+| adjustmentData / adjustments / # / settings / smart
+| adjustmentData / adjustments / # / settings / width
+| adjustmentData / adjustments / # / settings / yOrigin
+| adjustmentData / adjustments / # / settings / straightenAngle
+| adjustmentData / adjustments / # / settings / auto
+| adjustmentData / adjustments / # / settings / height
+| adjustmentData / adjustments / # / settings / constraintHeight
+| adjustmentData / adjustments / # / settings / constraintWidth
+| adjustmentData / adjustments / # / settings / pitch
+| adjustmentData / adjustments / # / identifier
+| adjustmentData / adjustments / # / formatIdentifier
+| adjustmentEditorBundleID
+| adjustmentFormatIdentifier
+| adjustmentFormatVersion
+| adjustmentRenderTypes
+| adjustmentTimestamp
