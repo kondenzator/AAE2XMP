@@ -1,11 +1,22 @@
 # AAE2XMP
 Script to convert AAE files (iOS media sidecar) to XMP (Lightroom sidecar)
 
+Sources that can be helpful:
+- https://github.com/nst/iOS-Runtime-Headers/blob/master/PrivateFrameworks/PhotosFormats.framework/PFAssetAdjustments.h
+- https://github.com/neilpa/photohack
+- https://github.com/RhetTbull/osxphotos
+
 Plan:
-1. collect AAE and XMP attributes
-2. try to pair them up --> create a table
-3. find out a general algorithm that can be parametrized to convert between any pairs
-   1. combine input values
+1. collect AAE and XMP properties.
+   - Sources for AAE:
+     - an AAE file from my iPhone (SE gen 2, iOS 16.1.1)
+     - example files from https://stackoverflow.com/questions/61023739/decoding-adjustmentdata-in-aae-files-of-pictures-taken-by-the-iphone
+   - Sources for XMP:
+     - an XMP file from Lightroom 9.2.1
+     - TODO
+3. try to pair them up --> create a table
+4. find out a general algorithm that can be parametrized to convert between any pairs
+   1. combine input values (AAE properties) if needed
    2. linear conversion or enumeration
    3. generate string representation of the resulted number (integer/fixed point/enumeration)
    4. add prefix and postfix
