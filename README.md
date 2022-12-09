@@ -10,8 +10,8 @@ Plan:
    3. generate string representation of the resulted number (integer/fixed point/enumeration)
    4. add prefix and postfix
 
-| AAE | AAE representation | XMP | XMP representation | description |
-|-----|--------------------|-----|--------------------|-------------|
+| AAE                                                            | AAE representation | XMP | XMP representation | description |
+|----------------------------------------------------------------|--------------------|-----|--------------------|-------------|
 | adjustmentBaseVersion
 | adjustmentData / metadata / masterHeight
 | adjustmentData / metadata / masterWidth
@@ -21,7 +21,7 @@ Plan:
 | adjustmentData / versionInfo / appVersion
 | adjustmentData / versionInfo / schemaRevision
 | adjustmentData / versionInfo / platform
-| adjustmentData / adjustments / ...
+| adjustmentData / adjustments / ...                             | -                  | -   | -                 | multiple adjustments are possible, they are in an array
 | adjustmentData / adjustments / # / formatVersion
 | adjustmentData / adjustments / # / enabled
 | adjustmentData / adjustments / # / settings / yaw
@@ -43,3 +43,14 @@ Plan:
 | adjustmentFormatVersion
 | adjustmentRenderTypes
 | adjustmentTimestamp
+| found in older version of adjustmentData (base64 encoded bplist):
+| adjustmentData / slowMotion / regions / ...                             | -                  | -   | -                 | multiple regions are possible, they are in an array
+| adjustmentData / slowMotion / regions / # / timeRange / start / flags
+| adjustmentData / slowMotion / regions / # / timeRange / start / value
+| adjustmentData / slowMotion / regions / # / timeRange / start / timescale
+| adjustmentData / slowMotion / regions / # / timeRange / start / epoch
+| adjustmentData / slowMotion / regions / # / timeRange / duration / flags
+| adjustmentData / slowMotion / regions / # / timeRange / duration / value
+| adjustmentData / slowMotion / regions / # / timeRange / duration / timescale
+| adjustmentData / slowMotion / regions / # / timeRange / duration / epoch
+| adjustmentData / slowMotion / rate
