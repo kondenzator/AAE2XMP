@@ -9,3 +9,7 @@ Plan:
    2. linear conversion or enumeration
    3. generate string representation of the resulted number (integer/fixed point/enumeration)
    4. add prefix and postfix
+
+| AAE | AAE representation | XMP | XMP representation | description |
+|-----|--------------------|-----|--------------------|-------------|
+|
