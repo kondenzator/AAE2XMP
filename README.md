@@ -9,10 +9,10 @@ Sources that can be helpful:
 Plan:
 1. collect AAE and XMP properties.
    - Sources for AAE:
-     - an AAE file from my iPhone (SE gen 2, iOS 16.1.1)
+     - AAE files from my iPhone (SE gen 2, iOS 16.1.1)
      - example files from https://stackoverflow.com/questions/61023739/decoding-adjustmentdata-in-aae-files-of-pictures-taken-by-the-iphone
    - Sources for XMP:
-     - an XMP file from Lightroom 9.2.1
+     - XMP files from Lightroom 9.2.1 library
      - TODO
 3. try to pair them up --> create a table
 4. find out a general algorithm that can be parametrized to convert between any pairs
@@ -20,6 +20,34 @@ Plan:
    2. linear conversion or enumeration
    3. generate string representation of the resulted number (integer/fixed point/enumeration)
    4. add prefix and postfix
+
+### Collecting AAE and XMP properties
+To analyze my files I would like to combine them to see overall results. Two kind of set-like operations are used:
+- intersection: elements common to all analyzed files
+- union: all existing elements in all files
+
+The analysis algorithms are written for XML but AAE has some challenges:
+- Contains multiple key-value tag pairs. This makes order of tags important. Solution: convert to JSON with plistlib (?)
+- Contains encoded JSON adjustmentData. Solution: decode then merge to the created JSON above
+
+And then convert the final JSON to XML using ??? (TODO)
+
+XML challenges:
+- Same sibling tags: they can be unordered so we have to find pairs
+- Same attribute multiple times: I don't think it would be valid XML so this won't be handled
+- I would like to keep the order and formatting of the input files to make comparisons easy but I think it is impossible when handling the above situations.
+
+#### How to combine XML elements
+
+| element/pattern | intersection | union |
+|-----------------|--------------|-------|
+| XML tag / JSON key<br>non-repeating<br>no attributes | If same tag exist in both inputs (at the same point in tree structure), the tag is included in the result.<br>If tag exists only in one input, the tag is not included in  the result. | Tag is included in the result. |
+| Same attribute with different values | Result is attribute without value | Result is attribute with set of possible values (notation can be value1 \| value2) |
+| Same attribute exists multiple times | Not supported --> error in log. Fallback: if needed, included only once in the result. | Not supported --> error in log. Fallback: if needed, included only once in the result. |
+| Tag exists multiple times | TODO: algorithm to find pairs<br>Tag without pair is not included in the result | TODO: algorithm to find pairs<br>Tag without pair is included in the result |
+  
+
+### AAE - XMP pairing results (ongoing)
 
 | AAE                                                            | AAE representation | XMP | XMP representation | description |
 |----------------------------------------------------------------|--------------------|-----|--------------------|-------------|
